@@ -1,4 +1,4 @@
-from flask import Flask, render_template, redirect
+from flask import Flask, render_template, redirect, request
 from flask_login import current_user, mixins, login_user, LoginManager, login_required, logout_user
 from forms.user import RegisterForm, LoginForm
 from data import db_session
@@ -15,11 +15,20 @@ def main():
     app.run(port=8080, host="127.0.0.1")
 
 
-@app.route('/')
+@app.route('/', methods=['POST', 'GET'])
 def base():
     if isinstance(current_user, mixins.AnonymousUserMixin):
         return redirect("/login")
-    return render_template("base.html", title="Умный Петербург")
+    if request.method == 'GET':
+        return render_template("form.html", title="Умный Петербург")
+
+    elif request.method == 'POST':
+        print(request.form['name'])
+        print(request.form['surname'])
+        print(request.form['email'])
+        print(request.form['sex'])
+        print(request.form['about'])
+        return "Форма отправлена"
 
 
 @app.route('/login', methods=['GET', 'POST'])
