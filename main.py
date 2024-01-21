@@ -28,7 +28,7 @@ def base():
         print(request.form['email'])
         print(request.form['sex'])
         print(request.form['about'])
-        return "Форма отправлена"
+        return render_template("form_send.html", title="Умный Петербург")
 
 
 @app.route('/login', methods=['GET', 'POST'])
