@@ -78,6 +78,10 @@ footer {
     margin-left: auto;
 }
 
+.footer_container {
+    margin-top: 400px;
+}
+
 .py-5 {
     padding-top: 3rem!important;
     padding-bottom: 3rem!important;
