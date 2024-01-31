@@ -12,7 +12,7 @@ app.config["SECRET_KEY"] = "mbe"
 
 def main():
     db_session.global_init("db/users.db")
-    app.run(port=8080, host="127.0.0.1")
+    app.run(port=5000, host="45.90.33.96")
 
 
 @app.route('/', methods=['POST', 'GET'])
